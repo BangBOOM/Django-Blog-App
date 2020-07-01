@@ -1,11 +1,28 @@
 # 这是一个基于Django和Bootstrap的个人博客APP
 
-这是一个比较简洁的博客会持续更新修改
+
+
+## 当前功能
+
+- [x] 文章详情页面
+- [x] 文章列表
+- [x] 按类别分类
+- [x] 全局关键字搜索
+- [ ] 评论，准备做个第三方集成
+- [ ] 详情页面美化
+- [ ] 给文章可以设置多类别
+- [ ] 归档页面
+- [ ] css代码部分标准化
+
+
+
+这是一个基于Django的个人博客APP，使用的时候直接加入到新建的django项目中，settings文件的配置如下
 
 样式直接访问这个[DEMO](https://justyan.top/blog/index)
 
 此项目基于Django3.0开发
 settings和url中的设置
+
 ```Python
 INSTALLED_APPS = [
     'django.contrib.admin',
