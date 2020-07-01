@@ -39,24 +39,34 @@
             <div>
                 <nav aria-label="...">
                     <ul class="pager">
-                        <li style="margin: 3px">
-                            <a href="{{ previous_article.article_id }}"
-                               style="background-color: rgb(48, 48, 48);border: transparent;">
+                        <li class="previous">
+                            <a href="{{ previous_article.article_id }}" class="page-change">
                                 上一篇：{{ previous_article.title }}
                             </a></li>
-                        <li style="margin: 3px"><a href="{{ next_article.article_id }}"
-                                                   style="background-color: rgb(48, 48, 48);border: transparent;">
+                        <li class="next"><a href="{{ next_article.article_id }}" class="page-change">
                             下一篇：{{ next_article.title }}
                         </a></li>
                     </ul>
                 </nav>
             </div>
+            <style>
+                .page-change {
+                    background-color: rgb(48, 48, 48) !important;
+                    border: transparent !important;
+                    width: 49% !important;
+                    white-space: nowrap !important;
+                    text-overflow: ellipsis !important;
+                    overflow: hidden !important;
+                    border-radius: 0 !important;
+                    font-size: 18px !important;
+                }
+            </style>
         </div>
     </div>
 
 
     <div class="col-md-3" role="complementary" style="margin-top: 4px">
-        <h3><strong>CATALOG</strong></h3>
+        <h3><strong>目录</strong></h3>
         <hr>
         <div class="title" style="font-size: 18px;text-align: left">
             {{ toc|safe }}

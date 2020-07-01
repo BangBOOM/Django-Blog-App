@@ -1,15 +1,32 @@
 <div class="body-main">
     {% for article in article_list %}
-        <div style="background-color: rgb(48,48,48)">
+        <div class="article-brief">
             <div class="article-margin-padding">
                 <h3 class="article-title"><b>
-                    <a href="{% url 'myblog:get_detail' article_id=article.article_id %}" style="color: white">
+                    <a href="{% url 'myblog:get_detail' article_id=article.article_id %}">
                         {{ article.title }}
                     </a></b><br>
                     <small>{{ article.article_type }}</small>
                 </h3>
-                <p style="font-size: 18px">{{ article.brief_content }}</p>
+                <p>{{ article.brief_content }}</p>
             </div>
         </div>
     {% endfor %}
+
+    <style>
+
+        .article-brief {
+            background-color: rgb(48, 48, 48) !important;
+        }
+
+        .article-brief p {
+            font-size: 18px !important;
+        }
+
+        .article-brief a {
+            color: white !important;
+        }
+
+    </style>
+
 </div>

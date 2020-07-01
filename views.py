@@ -124,9 +124,7 @@ def get_detail_page(request, article_id):
             'markdown.extensions.toc',
         ]
     )
-    print(curr_article.content)
     curr_article.content = md.convert(curr_article.content)
-    print(curr_article.content)
     return render(request, 'detail.html', {
         'curr_article': curr_article,
         'toc': md.toc,
