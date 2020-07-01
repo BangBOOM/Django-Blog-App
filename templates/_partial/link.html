@@ -1,0 +1,26 @@
+<div class="panel right-title" style="font-size: 18px">
+    <div class="panel-heading ">
+        <i class="fa fa-link" aria-hidden="true" style="margin-right: 4px"></i>
+        链接
+    </div>
+    <div class="panel-body right-list" style="font-size: 18px">
+        {#github#}
+        <a target="_blank" href="https://github.com/BangBOOM" style="margin-right: 4px">
+            <i class="fa fa-github-square" aria-hidden="true"></i>
+        </a>
+        {#twitter#}
+        <a target="_blank" href="https://twitter.com/BangBOOM98" style="margin-right: 4px">
+            <i class="fa fa-twitter" aria-hidden="true"></i>
+        </a>
+        {#mail#}
+        <a target="_blank" href="mailto:went0rthyang@gmail.com" style="margin-right: 4px">
+            <i class="fa fa-envelope" aria-hidden="true"></i>
+        </a>
+        <a target="_blank" href="{% url "myblog:rss" %}" style="margin-right: 4px">
+            <i class="fa fa-rss" aria-hidden="true"></i>
+        </a>
+
+    </div>
+</div>
+
+{% include '_partial/copyright.html' %}

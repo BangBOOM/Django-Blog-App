@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en" xmlns:https="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>焱的博客|YAN'S BLOG</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script src="{% static 'js/jquery.min.js' %}"></script>
+    <script src="{% static 'bootstrap/js/bootstrap.min.js' %}"></script>
+    <link rel="stylesheet" href="{% static 'bootstrap/css/bootstrap.min.css' %}">
+    <link rel="stylesheet" href="{% static 'font-awesome/css/font-awesome.min.css' %}">
+    <link rel="stylesheet" href="{% static 'css/layout.css' %}">
+    <link rel="shortcut icon" href="{% static 'img/favicon.ico' %}">
+    {# 代码高亮模块 #}
+    <link rel="stylesheet" href="{% static 'css/prism.css' %}">
+    <script src="{% static 'js/prism.js' %}"></script>
+</head>
+
+<body>
+<div class="container">
+    <ul class="nav nav-tabs nav-tab-x">
+        <li role="presentation"><a href="{% url "myblog:index" %}"><b>Home</b></a></li>
+    </ul>
+    <h2 class="title" style="margin: 1em">
+        <b>{{ curr_article.title }}</b>
+        <small><br>
+            <span class="label label-primary">Updated on {{ curr_article.publish_data.date }}</span>
+            <span class="label label-success">{{ curr_article.article_type }}</span>
+            <span class="label label-info">VIEWS:{{ curr_article.views }}</span>
+        </small>
+    </h2>
+</div>
+<div class="container page-body">
+    <div class="col-md-9" role="main">
+        <div style="font-size: 18px">
+            {{ curr_article.content|safe }}
+        </div>
+        <div class="body-footer">
+            <div>
+                <nav aria-label="...">
+                    <ul class="pager">
+                        <li style="margin: 3px">
+                            <a href="{{ previous_article.article_id }}"
+                               style="background-color: rgb(48, 48, 48);border: transparent;">
+                                上一篇：{{ previous_article.title }}
+                            </a></li>
+                        <li style="margin: 3px"><a href="{{ next_article.article_id }}"
+                                                   style="background-color: rgb(48, 48, 48);border: transparent;">
+                            下一篇：{{ next_article.title }}
+                        </a></li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+    </div>
+
+
+    <div class="col-md-3" role="complementary" style="margin-top: 4px">
+        <h3><strong>CATALOG</strong></h3>
+        <hr>
+        <div class="title" style="font-size: 18px;text-align: left">
+            {{ toc|safe }}
+        </div>
+        <hr>
+        {% include '_partial/copyright.html' %}
+    </div>
+</div>
+
+</body>

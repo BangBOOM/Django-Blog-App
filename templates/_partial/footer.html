@@ -1,0 +1,27 @@
+{% ifequal show_page 1 %}
+{% else %}
+    <div class="body-footer">
+        <nav aria-label="Page navigation" style="text-align: center">
+            <ul class="pagination pagination-lg">
+                <li>
+                    <a href="?page={{ previous_page }}" aria-label="Previous"
+                       style="background-color: rgb(48, 48, 48);border: transparent;">
+                        <span aria-hidden="true">&laquo;</span>
+                    </a>
+                </li>
+                {% for num in page_num %}
+                    <li><a href="?page={{ num }}"
+                           style="background-color: rgb(48, 48, 48);border: transparent;">
+                        {{ num }}
+                    </a></li>
+                {% endfor %}
+                <li>
+                    <a href="?page={{ next_page }}" aria-label="Next"
+                       style="background-color: rgb(48, 48, 48);border: transparent;">
+                        <span aria-hidden="true">&raquo;</span>
+                    </a>
+                </li>
+            </ul>
+        </nav>
+    </div>
+{% endifequal %}

@@ -1,0 +1,12 @@
+<div class="list-group" style="font-size: 18px">
+    <div class="list-group-item right-title">
+        <i class="fa fa-tags" aria-hidden="true" style="margin-right: 4px"></i>
+        分类
+    </div>
+    {% for type in types %}
+        <a href="{% url 'myblog:get_tag' tag_id=type.id %}" class=" list-group-item right-list">
+            <span class="badge" style="font-size: 16px">{{ type.numbers }}</span>
+            {{ type.name }}
+        </a>
+    {% endfor %}
+</div>

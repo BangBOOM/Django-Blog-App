@@ -1,0 +1,17 @@
+    <div class="panel right-title" style="font-size: 18px">
+        <div class="panel-heading ">
+            <i class="fa fa-search" aria-hidden="true" style="margin-right: 4px"></i>
+            搜索
+        </div>
+        <div class="panel-body right-list" style="font-size: 18px">
+            <div>
+                <form action="{% url 'myblog:search' %}" method="GET">
+                    {% csrf_token %}
+                    <div class="input-group" style="width: 100%">
+                        <input type="text" class="form-control" name="search_content" placeholder="Search for..."
+                               style="background-color: transparent;border: transparent">
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
