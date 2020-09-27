@@ -32,22 +32,22 @@
     <div class="page-body">
         <div>
             <div style="margin-top: 4px;margin-bottom: 4px; text-align: right">
-                <div class="title" style="font-size: 18px;text-align: right;">
+                <div class="title toc_x" style="font-size: 18px;text-align: right;">
                     {{ toc|safe }}
-                    <style>
-                        ul li {
-                            list-style-type: none !important;
-                        }
-
-                        li a {
-                            color: #f7e1b5;
-                        }
-
-                        li a:hover {
-                            color: white;
-                        }
-                    </style>
                 </div>
+                <style>
+                    .toc ul li {
+                        list-style-type: none;
+                    }
+
+                    .toc li a {
+                        color: #f7e1b5;
+                    }
+
+                    .toc li a:hover {
+                        color: white;
+                    }
+                </style>
             </div>
             <div style="font-size: 18px">
                 {{ curr_article.content|safe }}
@@ -92,6 +92,7 @@
                         border-radius: 0 !important;
                         font-size: 18px !important;
                     }
+
                     .pager a {
                         color: white;
                     }
