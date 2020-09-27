@@ -6,7 +6,7 @@ from django.db.models import Q, Count
 
 
 # Create your views here.
-
+POSTS_ONE_PAGE = 8
 
 def index(request):
     page = request.GET.get('page')
@@ -17,7 +17,7 @@ def index(request):
     all_article = Post.objects.all().order_by('-views')
     all_types = Category.objects.all().annotate(numbers=Count('post')).order_by('-numbers')
 
-    paginator = Paginator(all_article, 10)  # 每一页10篇
+    paginator = Paginator(all_article, POSTS_ONE_PAGE)  # 每一页10篇
     page_num = paginator.num_pages
     page_articles_list = paginator.page(page)
     if page_articles_list.has_next():

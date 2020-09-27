@@ -4,6 +4,6 @@
         最新文章
     </div>
     {% for article in top5 %}
-        <a href="detail/{{ article.article_id }}" class="list-group-item right-list">{{ article.title }}</a>
+        <a href="{% url 'myblog:get_detail' article_id=article.article_id %}" class="list-group-item right-list line-limit-length">{{ article.title }}</a>
     {% endfor %}
 </div>

@@ -19,67 +19,89 @@
 <body>
 <div class="container">
     <ul class="nav nav-tabs nav-tab-x">
-        <li role="presentation"><a href="{% url "myblog:index" %}"><b>Home</b></a></li>
+        <li role="presentation"><a href="{% url "myblog:index" %}"><b>主页</b></a></li>
     </ul>
-    <h2 class="title" style="margin: 1em">
+    <h1 class="title" style="margin: 1em">
         <b>{{ curr_article.title }}</b>
         <small><br>
             <span class="label label-primary">Updated on {{ curr_article.publish_data.date }}</span>
             <span class="label label-success">{{ curr_article.article_type }}</span>
             <span class="label label-info">VIEWS:{{ curr_article.views }}</span>
         </small>
-    </h2>
-</div>
-<div class="container page-body">
-    <div class="col-md-9" role="main">
-        <div style="font-size: 18px">
-            {{ curr_article.content|safe }}
-            <style>
-                code {
-                    background-color: rgb(45, 45, 45);
-                    color: cornflowerblue;
-                }
-            </style>
-        </div>
-        <div class="body-footer">
-            <div>
-                <nav aria-label="...">
-                    <ul class="pager">
-                        <li class="previous">
-                            <a href="{{ previous_article.article_id }}" class="page-change">
-                                上一篇：{{ previous_article.title }}
-                            </a></li>
-                        <li class="next"><a href="{{ next_article.article_id }}" class="page-change">
-                            下一篇：{{ next_article.title }}
-                        </a></li>
-                    </ul>
-                </nav>
+    </h1>
+    <div class="page-body">
+        <div>
+            <div style="margin-top: 4px;margin-bottom: 4px; text-align: right">
+                <div class="title" style="font-size: 18px;text-align: right;">
+                    {{ toc|safe }}
+                    <style>
+                        ul li {
+                            list-style-type: none !important;
+                        }
+
+                        li a {
+                            color: #f7e1b5;
+                        }
+
+                        li a:hover {
+                            color: white;
+                        }
+                    </style>
+                </div>
             </div>
-            <style>
-                .page-change {
-                    background-color: rgb(48, 48, 48) !important;
-                    border: transparent !important;
-                    width: 49% !important;
-                    white-space: nowrap !important;
-                    text-overflow: ellipsis !important;
-                    overflow: hidden !important;
-                    border-radius: 0 !important;
-                    font-size: 18px !important;
-                }
-            </style>
-        </div>
-    </div>
+            <div style="font-size: 18px">
+                {{ curr_article.content|safe }}
+                <style>
+                    code {
+                        background-color: rgb(45, 45, 45);
+                        color: cornflowerblue;
+                    }
 
+                    h2 {
+                        color: #eea236;
+                    }
 
-    <div class="col-md-3" role="complementary" style="margin-top: 4px">
-        <h3><strong>目录</strong></h3>
-        <hr>
-        <div class="title" style="font-size: 18px;text-align: left">
-            {{ toc|safe }}
+                    h3, h4 {
+                        color: #f7e1b5;
+                    }
+                </style>
+            </div>
+            <div class="body-footer">
+                <div>
+                    <nav aria-label="...">
+                        <ul class="pager">
+                            <li class="previous">
+                                <a href="{{ previous_article.article_id }}" class="page-change">
+                                    上一篇：{{ previous_article.title }}
+                                </a></li>
+                            <li class="next"><a href="{{ next_article.article_id }}" class="page-change">
+                                下一篇：{{ next_article.title }}
+                            </a></li>
+                        </ul>
+                    </nav>
+                </div>
+                {% include '_partial/copyright.html' %}
+                <style>
+                    .page-change {
+                        background-color: rgb(48, 48, 48) !important;
+                        border: transparent !important;
+                        width: 49% !important;
+                        white-space: nowrap !important;
+                        text-overflow: ellipsis !important;
+                        overflow: hidden !important;
+                        border-radius: 0 !important;
+                        font-size: 18px !important;
+                    }
+                    .pager a {
+                        color: white;
+                    }
+
+                    .pager a:hover {
+                        color: #1b6d85;
+                    }
+                </style>
+            </div>
         </div>
-        <hr>
-        {% include '_partial/copyright.html' %}
     </div>
 </div>
-
 </body>

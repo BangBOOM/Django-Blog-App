@@ -21,22 +21,23 @@ section {
 
 .margin-top-bottom {
     margin-top: 2em;
-    margin-bottom: 2em
+    margin-bottom: 2em;
 }
 
 .article-margin-padding {
     margin: 1em;
-    padding: 1em
+    padding: 1em;
 }
 
 .article-title {
-    font-family: 'Adobe 黑体 Std R', serif
+    font-family: 'Adobe 黑体 Std R', serif;
 }
 
 
 .right-title {
     background-color: rgb(68, 68, 68);
     border: transparent;
+    font-family: 'Adobe 黑体 Std R', serif;
 }
 
 .right-list {
@@ -62,10 +63,6 @@ img {
     box-shadow: black 0 0 10px !important;
 }
 
-ul li {
-    list-style-type: none !important;
-}
-
 a {
     text-decoration: none;
 }
@@ -80,4 +77,10 @@ a:hover {
 
 a:active {
     text-decoration: none;
+}
+
+.line-limit-length{
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
 }

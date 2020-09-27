@@ -8,7 +8,7 @@
                     </a></b><br>
                     <small>{{ article.article_type }}</small>
                 </h3>
-                <p>{{ article.brief_content }}</p>
+                <p class="line-limit-length">{{ article.brief_content }}</p>
             </div>
         </div>
     {% endfor %}
@@ -21,10 +21,11 @@
 
         .article-brief p {
             font-size: 18px !important;
+            color: #bdbdbd;
         }
 
         .article-brief a {
-            color: white !important;
+            color: #eea236 !important;
         }
 
     </style>
