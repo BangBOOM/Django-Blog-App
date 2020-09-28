@@ -4,9 +4,9 @@ from django.core.paginator import Paginator
 from markdown import Markdown
 from django.db.models import Q, Count
 
-
 # Create your views here.
 POSTS_ONE_PAGE = 8
+
 
 def index(request):
     page = request.GET.get('page')
@@ -16,10 +16,11 @@ def index(request):
         page = 1
     all_article = Post.objects.all().order_by('-views')
     all_types = Category.objects.all().annotate(numbers=Count('post')).order_by('-numbers')
-
-    paginator = Paginator(all_article, POSTS_ONE_PAGE)  # 每一页10篇
+    archives = Post.objects.all().values('publish_data__year', 'publish_data__month').annotate(numbers=Count('*'))
+    paginator = Paginator(all_article, POSTS_ONE_PAGE)
     page_num = paginator.num_pages
     page_articles_list = paginator.page(page)
+
     if page_articles_list.has_next():
         next_page = page + 1
     else:
@@ -38,6 +39,44 @@ def index(request):
         'previous_page': previous_page,
         'top5': top5_article_list,
         'types': all_types,
+        'archives': archives,
+    })
+
+
+def get_archive(request, year, month):
+    page = request.GET.get('page')
+    if page:
+        page = int(page)
+    else:
+        page = 1
+    all_article = Post.objects.filter(publish_data__year=year, publish_data__month=month).order_by('-publish_data')
+    all_types = Category.objects.all().annotate(numbers=Count('post')).order_by('-numbers')
+
+    paginator = Paginator(all_article, POSTS_ONE_PAGE)  # 每一页10篇
+    page_num = paginator.num_pages
+    page_articles_list = paginator.page(page)
+    archives = Post.objects.all().values('publish_data__year', 'publish_data__month').annotate(numbers=Count('*'))
+
+    if page_articles_list.has_next():
+        next_page = page + 1
+    else:
+        next_page = page
+    if page_articles_list.has_previous():
+        previous_page = page - 1
+    else:
+        previous_page = page
+    top5_article_list = all_article.order_by('-publish_data')[:5]
+
+    return render(request, 'tags.html', {
+        'article_list': page_articles_list,
+        'page_num': range(1, page_num + 1),
+        'curr_page': page,
+        'next_page': next_page,
+        'previous_page': previous_page,
+        'top5': top5_article_list,
+        'types': all_types,
+        'show_page': page_num,
+        'archives': archives
     })
 
 
@@ -50,6 +89,7 @@ def get_tags(request, tag_id):
     cat = Category.objects.get(id=tag_id)
     all_article = Post.objects.filter(article_type=cat).order_by('-views')
     all_types = Category.objects.all().annotate(numbers=Count('post')).order_by('-numbers')
+    archives = Post.objects.all().values('publish_data__year', 'publish_data__month').annotate(numbers=Count('*'))
 
     paginator = Paginator(all_article, 10)  # 每一页10篇
     page_num = paginator.num_pages
@@ -74,6 +114,7 @@ def get_tags(request, tag_id):
         'top5': top5_article_list,
         'types': all_types,
         'show_page': page_num,
+        'archives': archives,
     })
 
 
@@ -88,11 +129,13 @@ def search(request):
     ).order_by('-views')
     all_types = Category.objects.all().annotate(numbers=Count('post')).order_by('-numbers')
     top5_article_list = all_article.order_by('-publish_data')[:5]
+    archives = Post.objects.all().values('publish_data__year', 'publish_data__month').annotate(numbers=Count('*'))
     return render(request, 'search.html', {
         'article_list': all_article,
         'top5': top5_article_list,
         'types': all_types,
         'show_page': 1,
+        'archives': archives,
     })
 
 

@@ -2,13 +2,17 @@
     {% for article in article_list %}
         <div class="article-brief">
             <div class="article-margin-padding">
-                <h3 class="article-title"><b>
-                    <a href="{% url 'myblog:get_detail' article_id=article.article_id %}">
-                        {{ article.title }}
-                    </a></b><br>
-                    <small>{{ article.article_type }}</small>
+                <h3 class="article-title">
+                    <b>
+                        <a href="{% url 'myblog:get_detail' article_id=article.article_id %}">
+                            {{ article.title }}
+                        </a>
+                    </b>
+                    <br>
                 </h3>
                 <p class="line-limit-length">{{ article.brief_content }}</p>
+                <span class="label label-default article-title">{{ article.article_type }}</span>
+                <span class="label label-default article-title">{{ article.publish_data.year }}/{{ article.publish_data.month }}/{{ article.publish_data.day }}</span>
             </div>
         </div>
     {% endfor %}

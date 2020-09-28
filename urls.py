@@ -12,6 +12,7 @@ urlpatterns = [
     path("index", views.index, name="index"),
     path("detail/<int:article_id>", views.get_detail_page, name="get_detail"),
     path("tag/<int:tag_id>", views.get_tags, name="get_tag"),
+    path("archive/<int:year>/<int:month>", views.get_archive, name="get_archive"),
     path("search/", views.search, name="search"),
     path("rss/", AllPostsRssFeed(), name="rss"),
 ]

@@ -1,0 +1,13 @@
+<div class="list-group" style="font-size: 18px">
+    <div class="list-group-item right-title">
+        <i class="fas fa-archive" aria-hidden="true" style="margin-right: 4px"></i>
+        归档
+    </div>
+    {% for archive in archives %}
+        <a href="{% url 'myblog:get_archive' year=archive.publish_data__year month=archive.publish_data__month %}"
+           class=" list-group-item right-list">
+            <span class="badge" style="font-size: 16px">{{ archive.numbers }}</span>
+            {{ archive.publish_data__year }}-{{ archive.publish_data__month }}
+        </a>
+    {% endfor %}
+</div>
