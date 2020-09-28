@@ -9,9 +9,9 @@
 - [x] 按类别分类
 - [x] 全局关键字搜索
 - [x] 详情页面美化
+- [x] 归档页面
 - [ ] 评论，准备做个第三方集成
 - [ ] 给文章可以设置多类别
-- [ ] 归档页面
 - [ ] css代码部分标准化
 
 
@@ -40,11 +40,9 @@ from django.urls import path
 from django.urls import include
 from django.conf import settings
 from django.conf.urls.static import static
-from MyWebSite import views
 
 urlpatterns = [
                   path('admin/', admin.site.urls),
-                  path('', views.index),
                   path('blog/', include('myblog.urls', namespace='blog')),
               ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 ```
