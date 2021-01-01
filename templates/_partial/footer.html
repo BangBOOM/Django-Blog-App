@@ -1,21 +1,21 @@
 {% ifequal show_page 1 %}
 {% else %}
-    <div class="body-footer">
+    <div class="body-footer shadow-lg">
     
         <nav aria-label="Page navigation" style="text-align: center">
             <ul class="pagination pagination-lg ">
                 <li>
-                    <a href="?page={{ previous_page }}" aria-label="Previous" class="color-a">
+                    <a href="?page={{ previous_page }}#start" aria-label="Previous" class="color-a">
                         <span aria-hidden="true">&laquo;</span>
                     </a>
                 </li>
                 {% for num in page_num %}
-                    <li><a href="?page={{ num }}" class="color-a">
+                    <li><a href="?page={{ num }}#start" class="color-a">
                         {{ num }}
                     </a></li>
                 {% endfor %}
                 <li>
-                    <a href="?page={{ next_page }}" aria-label="Next" class="color-a">
+                    <a href="?page={{ next_page }}#start" aria-label="Next" class="color-a">
                         <span aria-hidden="true">&raquo;</span>
                     </a>
                 </li>
