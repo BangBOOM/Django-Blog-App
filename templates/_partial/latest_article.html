@@ -1,7 +1,7 @@
 <div class="list-group" style="font-size: 18px">
     <div class="list-group-item right-title">
         <i class="fas fa-book" aria-hidden="true" style="margin-right: 4px"></i>
-        最新文章
+        最多阅读
     </div>
     {% for article in top5 %}
         <a href="{% url 'myblog:get_detail' article_id=article.article_id %}" class="list-group-item right-list line-limit-length">{{ article.title }}</a>
