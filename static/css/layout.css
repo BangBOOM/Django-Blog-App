@@ -1,14 +1,3 @@
-section {
-    height: 100vh;
-    color: #fff;
-    line-height: 130vh;
-    text-align: center;
-    user-select: none;
-    -webkit-user-select: none;
-    -ms-user-select: none;
-    -moz-user-select: none;
-}
-
 .title {
     text-align: center;
     font-family: 'Adobe 黑体 Std R', serif;

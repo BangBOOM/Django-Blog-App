@@ -4,42 +4,42 @@
         链接
     </div>
     <div class="panel-body right-list links">
-
-        <div class="row">
-            <div class="col-md-3">
-                {#github#}
-                <a target="_blank" href="https://github.com/BangBOOM">
-                    <i class="fab fa-github-square" aria-hidden="true"></i>
-                </a>
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-sm-3">
+                    {#github#}
+                    <a target="_blank" href="https://github.com/BangBOOM">
+                        <i class="fab fa-github-square" aria-hidden="true"></i>
+                    </a>
+                </div>
+                <div class="col-sm-3">
+                    {#twitter#}
+                    <a target="_blank" href="https://twitter.com/BangBOOM98">
+                        <i class="fab fa-twitter-square" aria-hidden="true"></i>
+                    </a>
+                </div>
+                <div class="col-sm-3">
+                    {#mail#}
+                    <a target="_blank" href="mailto:went0rthyang@gmail.com">
+                        <i class="fas fa-envelope-square" aria-hidden="true"></i>
+                    </a>
+                </div>
+                <div class="col-sm-3">
+                    {#rss#}
+                    <a target="_blank" href="{% url "myblog:rss" %}">
+                        <i class="fas fa-rss-square" aria-hidden="true"></i>
+                    </a>
+                </div>
             </div>
-            <div class="col-md-3">
-                {#twitter#}
-                <a target="_blank" href="https://twitter.com/BangBOOM98">
-                    <i class="fab fa-twitter-square" aria-hidden="true"></i>
-                </a>
-            </div>
-            <div class="col-md-3">
-                {#mail#}
-                <a target="_blank" href="mailto:went0rthyang@gmail.com">
-                    <i class="fas fa-envelope-square" aria-hidden="true"></i>
-                </a>
-            </div>
-            <div class="col-md-3">
-                {#rss#}
-                <a target="_blank" href="{% url "myblog:rss" %}">
-                    <i class="fas fa-rss-square" aria-hidden="true"></i>
-                </a></div>
         </div>
-
-
+        
         <style>
             .links {
                 font-size: 18px;
             }
 
             .links a {
-                margin-right: 4px !important;
-                font-size: 24px !important;
+            {#margin: auto !important;#} font-size: 24px !important;
                 color: #bdbdbd;
             }
 

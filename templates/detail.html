@@ -22,7 +22,7 @@
         <li role="presentation"><a href="{% url "myblog:index" %}"><b>主页</b></a></li>
     </ul>
     <h1 class="title" style="margin: 1em">
-        <b>{{ curr_article.title }}</b>
+        <b style="color: #c6ffc1">{{ curr_article.title }}</b>
         <small><br>
             <span class="label label-primary">Updated on {{ curr_article.publish_data.date }}</span>
             <span class="label label-success">{{ curr_article.article_type }}</span>
@@ -74,9 +74,10 @@
                                 <a href="{{ previous_article.article_id }}" class="page-change">
                                     上一篇：{{ previous_article.title }}
                                 </a></li>
-                            <li class="next"><a href="{{ next_article.article_id }}" class="page-change">
+                            <li class="next">
+                                <a href="{{ next_article.article_id }}" class="page-change">
                                 下一篇：{{ next_article.title }}
-                            </a></li>
+                                </a></li>
                         </ul>
                     </nav>
                 </div>
@@ -91,6 +92,7 @@
                         overflow: hidden !important;
                         border-radius: 0 !important;
                         font-size: 18px !important;
+                        color: #34656d !important;
                     }
 
                     .pager a {

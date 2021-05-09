@@ -11,8 +11,8 @@
                     <br>
                 </h3>
                 <p class="line-limit-length">{{ article.brief_content }}</p>
-                <span class="label label-default article-title">{{ article.article_type }}</span>
-                <span class="label label-default article-title">{{ article.publish_data.year }}/{{ article.publish_data.month }}/{{ article.publish_data.day }}</span>
+                <span class="label label-default article-title span-type">{{ article.article_type }}</span>
+                <span class="label label-default article-title span-data">{{ article.publish_data.year }}/{{ article.publish_data.month }}/{{ article.publish_data.day }}</span>
             </div>
         </div>
     {% endfor %}
@@ -23,13 +23,21 @@
             background-color: rgb(48, 48, 48) !important;
         }
 
+        .span-type{
+            background-color: #34656d;
+        }
+
+        .span-data{
+            background-color: #334443;
+        }
+
         .article-brief p {
             font-size: 18px !important;
-            color: #bdbdbd;
+            color: #fffbdf;
         }
 
         .article-brief a {
-            color: #eea236 !important;
+            color: #c6ffc1 !important;
         }
 
     </style>
