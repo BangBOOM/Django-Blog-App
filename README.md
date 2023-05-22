@@ -18,7 +18,7 @@
 
 这是一个基于Django的个人博客APP，使用的时候直接加入到新建的django项目中，settings文件的配置如下
 
-样式直接访问这个[DEMO](https://justyan.top/blog/index)
+样式直接访问这个[DEMO](https://site.bangboom.nl/blog/index)
 
 此项目基于Django3.0开发
 settings和url中的设置
